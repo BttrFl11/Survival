@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class PlayerStats : Damageable
 {
@@ -19,6 +20,8 @@ public class PlayerStats : Damageable
 
     private float currentExp = 0;
     private float maxExp;
+
+    public static Action OnLevelUp;
 
     protected override float Health 
     {
@@ -72,6 +75,8 @@ public class PlayerStats : Damageable
 
         maxExp = Mathf.Pow(maxExp + increaseExpPerLevel, expPow);
 
+        OnLevelUp?.Invoke();
+
         Debug.Log("LEVEL UP!");
     }
 
@@ -92,10 +97,16 @@ public class PlayerStats : Damageable
         Destroy(gameObject);
     }
 
+
     internal void TakeExp(float exp)
     {
         Exp += exp;
 
         Debug.Log($"Player took {exp} exp!\nTotal exp: {Exp}");
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        Health -= damage;
     }
 }

@@ -8,6 +8,7 @@ public class Damageable : MonoBehaviour, IDamageable
     [SerializeField] protected Image healthImage;
     [SerializeField] protected Image tempHealthImage;
     [SerializeField] protected float tempHealthAnimSpeed;
+    [SerializeField] protected FloatingText floatingText;
 
     protected float health;
 
@@ -46,5 +47,9 @@ public class Damageable : MonoBehaviour, IDamageable
     public virtual void TakeDamage(float damage)
     {
         Health -= damage;
+
+        GameObject createdText = Instantiate(floatingText.gameObject, transform.position, Quaternion.identity);
+        var floatingTXT = createdText.GetComponent<FloatingText>();
+        floatingTXT.SetText(damage.ToString("0"));
     }
 }

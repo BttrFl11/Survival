@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 266853028989605359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6020609694134726614}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.8679245, g: 0.3725525, b: 0.3725525, a: 1}
+  m_Color: {r: 0.060074754, g: 0.509434, b: 0.11964643, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,7 +121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.177}
+  m_AnchoredPosition: {x: 0, y: 0.21}
   m_SizeDelta: {x: 0.8205, y: 0.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7681382399164278775
@@ -194,14 +194,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6020609694134726614}
-  - component: {fileID: 839911281249786374}
+  - component: {fileID: 9067959705158997120}
   - component: {fileID: 471300022705453319}
   - component: {fileID: 1718381309315333861}
   - component: {fileID: 2238297724248776911}
   - component: {fileID: 4774883334986784093}
   - component: {fileID: 4752008721885735594}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Enemy_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,8 +224,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &839911281249786374
-CircleCollider2D:
+--- !u!70 &9067959705158997120
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -238,8 +238,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
+  m_Size: {x: 0.24904186, y: 0.29478043}
+  m_Direction: 0
 --- !u!50 &471300022705453319
 Rigidbody2D:
   serializedVersion: 4
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2c59168baaec2418920296e0b7bfe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  moveSpeed: 0.45
   avoidVelocity: 4
   avoidSpeed: 1
 --- !u!114 &4774883334986784093
@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa92b0d2babff0049bd420b2aee9f4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  attacksPerSecond: 1
+  damage: 15
+  attacksPerSecond: 1.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -317,11 +317,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb646c73c1ca0c4eabaf496105b54d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
+  maxHealth: 45
   healthImage: {fileID: 4895347234956358969}
   tempHealthImage: {fileID: 0}
   tempHealthAnimSpeed: 0
-  expForDeath: 7
+  floatingText: {fileID: 6037553663333594511, guid: 1adc4699cfcee7c409cc81d7f862387c, type: 3}
+  expForDeath: 13
 --- !u!1 &2310414962014184164
 GameObject:
   m_ObjectHideFlags: 0

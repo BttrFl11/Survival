@@ -22,6 +22,7 @@ public class Weapon_0 : Weapon
 
     public override void GiveDamage(Damageable damageable)
     {
+        float damage = damageScale * playerFighting.Damage;
         damageable.TakeDamage(damage);
     }
 }

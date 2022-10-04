@@ -8,11 +8,11 @@ public class EnemyFighting : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
 
     private float timeBtwAttacks;
-    private new CircleCollider2D collider;
+    private new Collider2D collider;
 
     private void Awake()
     {
-        collider = GetComponent<CircleCollider2D>();
+        collider = GetComponent<Collider2D>();
 
         timeBtwAttacks = 1 / attacksPerSecond;
     }

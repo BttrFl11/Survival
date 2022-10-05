@@ -47,13 +47,9 @@ public class Weapon_1 : Weapon
             lastDir = playerMomement.Direction;
         }
 
-
         Vector2 distance = PositionL - lastDir;
         float rotZ = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg + offset;
-
         float smoothZ = Mathf.LerpAngle(Rotation.z, rotZ, rotationSpeed * Time.fixedDeltaTime);
         Rotation = new(0, 0, smoothZ);
-
-        //transform.rotation = Quaternion.E(Vector3.Lerp(transform.rotation.eulerAngles, new(0, 0, rotZ), rotationSpeed * Time.fixedDeltaTime));
     }
 }

@@ -16,8 +16,13 @@ public class Neighborhood : MonoBehaviour
             if (neighbors.Count == 0)
                 return avgPos;
 
-            for (int i = 0; i < neighbors.Count; i++)
-                avgPos += neighbors[i].transform.position;
+            foreach (var neighbor in neighbors)
+            {
+                if (neighbor != null)
+                    avgPos += neighbor.transform.position;
+                else
+                    neighbors.Remove(neighbor);
+            }
 
             avgPos /= neighbors.Count;
 

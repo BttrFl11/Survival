@@ -19,10 +19,4 @@ public class Weapon_0 : Weapon
     {
         transform.Rotate(Vector3.forward * rotationSpeed);
     }
-
-    public override void GiveDamage(Damageable damageable)
-    {
-        float damage = damageScale * playerFighting.Damage;
-        damageable.TakeDamage(damage);
-    }
 }

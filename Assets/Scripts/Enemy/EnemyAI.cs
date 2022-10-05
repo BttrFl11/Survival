@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private Transform target;
 
-    private Vector2 position
+    private Vector2 Position
     {
         get { return transform.position; }
         set { transform.position = value; }
@@ -43,7 +43,7 @@ public class EnemyAI : MonoBehaviour
 
         if (avgPos != Vector2.zero)
         {
-            avoidVel = position - avgPos;
+            avoidVel = Position - avgPos;
             avoidVel = avoidVel.normalized * avoidVelocity;
         }
 
@@ -53,6 +53,6 @@ public class EnemyAI : MonoBehaviour
 
     private void MoveTawardsTarget()
     {
-        position = Vector2.MoveTowards(position, target.position, moveSpeed * Time.fixedDeltaTime);
+        Position = Vector2.MoveTowards(Position, target.position, moveSpeed * Time.fixedDeltaTime);
     }
 }

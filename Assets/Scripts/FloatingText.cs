@@ -14,7 +14,7 @@ public class FloatingText : MonoBehaviour
     private CanvasGroup canvasGroup;
     private Vector2 startPos;
 
-    private Vector2 pos
+    private Vector2 Position
     {
         get => transform.position;
         set => transform.position = value;
@@ -22,7 +22,7 @@ public class FloatingText : MonoBehaviour
 
     private void OnEnable()
     {
-        startPos = pos;
+        startPos = Position;
         birthTime = Time.time;
 
         Invoke(nameof(Destroy), lifetime);
@@ -34,13 +34,13 @@ public class FloatingText : MonoBehaviour
     {
         // X moving
         float lifetime = Time.time - birthTime;
-        Vector2 newPos = pos;
+        Vector2 newPos = Position;
         newPos.x = startPos.x + Mathf.Sin(Mathf.PI * 2 * lifetime / speedX) * widthX;
 
         // Y moving
         newPos.y += speedY * Time.fixedDeltaTime;
 
-        pos = newPos;
+        Position = newPos;
 
         canvasGroup.alpha = Mathf.Lerp(1, 0, lifetime);
     }

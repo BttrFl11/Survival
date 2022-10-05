@@ -8,10 +8,10 @@ public partial class PlayerMomement : MonoBehaviour
 
     private Vector2 direction;
 
-    private Vector2 position
+    public Vector2 Direction
     {
-        get { return transform.position; }
-        set { transform.position = value; }
+        get => direction;
+        private set => direction = value;
     }
 
     private void FixedUpdate()
@@ -26,17 +26,19 @@ public partial class PlayerMomement : MonoBehaviour
     {
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
-        direction = new(inputX, inputY);
-        direction = direction.normalized * moveSpeed;
+        Direction = new(inputX, inputY);
+        Direction = Direction.normalized * moveSpeed;
 
-        transform.Translate(direction * Time.fixedDeltaTime);
+        transform.Translate(Direction * Time.fixedDeltaTime);
     }
 
     private void Move_Joystick()
     {
-        direction = new(joystick.Horizontal, joystick.Vertical);
-        direction *= moveSpeed;
+        Direction = new(joystick.Horizontal, joystick.Vertical);
+        Direction *= moveSpeed;
 
-        transform.Translate(direction * Time.fixedDeltaTime);
+        transform.Translate(Direction * Time.fixedDeltaTime);
     }
+
+    public DeviceType GetDeviceType() => deviceType;
 }

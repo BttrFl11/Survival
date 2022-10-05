@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private Wave currentWave;
     private float timeBtwSpawns;
 
-    private Vector2 position
+    private Vector2 Position
     {
         get => transform.position;
         set => transform.position = value;
@@ -34,6 +34,9 @@ public class EnemySpawner : MonoBehaviour
 
             for (int e = 0; e < currentWave.enemiesCount; e++)
             {
+                if (PlayerStats.Instance == null)
+                    break;
+
                 SpawnEnemy(currentWave.enemyPrefab);
 
                 Debug.Log($"An enemy ?{e} were spawned");
@@ -56,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
         if (PlayerStats.Instance == null)
             StopAllCoroutines();
 
-        Instantiate(enemyPrefab, position + GetRandomPos(), Quaternion.identity, spawnedEnemiesParent);
+        Instantiate(enemyPrefab, Position + GetRandomPos(), Quaternion.identity, spawnedEnemiesParent);
     }
 
     private Vector2 GetRandomPos()

@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb646c73c1ca0c4eabaf496105b54d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 145
+  maxHealth: 165
   healthImage: {fileID: 4895347234956358969}
   tempHealthImage: {fileID: 0}
   tempHealthAnimSpeed: 0

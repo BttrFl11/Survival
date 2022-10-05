@@ -72,6 +72,7 @@ public class PlayerStats : Damageable
     private void LevelUp()
     {
         currentExp -= maxExp;
+        Health = maxHealth;
 
         maxExp = Mathf.Pow(maxExp + increaseExpPerLevel, expPow);
 

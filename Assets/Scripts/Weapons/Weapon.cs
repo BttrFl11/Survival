@@ -17,6 +17,11 @@ public abstract class Weapon : MonoBehaviour, IWeapon
         Attack();
     }
 
+    public virtual void GiveDamage(Damageable damageable)
+    {
+        float damage = damageScale * playerFighting.Damage;
+        damageable.TakeDamage(damage);
+    }
+
     public abstract void Attack();
-    public abstract void GiveDamage(Damageable damageable);
 }

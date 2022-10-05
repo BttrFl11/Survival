@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 offset;
 
-    private Vector3 position
+    private Vector3 Position
     {
         get { return transform.position; }
         set { transform.position = value; }
@@ -28,8 +28,8 @@ public class CameraFollow : MonoBehaviour
 
     private void FollowTarget()
     {
-        Vector3 newPos = Vector3.Lerp(position, target.position, speed * Time.fixedDeltaTime);
+        Vector3 newPos = Vector3.Lerp(Position, target.position, speed * Time.fixedDeltaTime);
         newPos += offset;
-        position = newPos;
+        Position = newPos;
     }
 }

@@ -6,6 +6,11 @@ public abstract class Weapon : MonoBehaviour, IWeapon
 
     public static PlayerFighting playerFighting;
 
+    protected float Damage
+    {
+        get => damageScale * playerFighting.Damage;
+    }
+
     protected virtual void OnEnable()
     {
         if (playerFighting == null)
@@ -19,9 +24,9 @@ public abstract class Weapon : MonoBehaviour, IWeapon
 
     public virtual void GiveDamage(Damageable damageable)
     {
-        float damage = damageScale * playerFighting.Damage;
-        damageable.TakeDamage(damage);
+        damageable.TakeDamage(Damage);
     }
 
+    // Called once in per frame
     public abstract void Attack();
 }

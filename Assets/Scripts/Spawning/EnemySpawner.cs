@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
 
                 SpawnEnemy(currentWave.enemyPrefab);
 
-                Debug.Log($"An enemy ?{e} were spawned");
+                Debug.Log($"An enemy {e} were spawned");
 
                 yield return new WaitForSeconds(timeBtwSpawns);
             }

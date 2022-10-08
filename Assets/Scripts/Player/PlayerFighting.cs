@@ -9,7 +9,12 @@ public class PlayerFighting : MonoBehaviour
     [SerializeField] private float increasePow;
     [SerializeField] private TextMeshProUGUI damageText;
 
-    private List<Weapon> weapons = new();
+    private List<Weapon> weapons;
+    public List<Weapon> Weapons
+    {
+        get => weapons;
+        private set => weapons = value;
+    }
 
     private float damage;
 
@@ -37,15 +42,17 @@ public class PlayerFighting : MonoBehaviour
     private void Awake()
     {
         var startWeapons = GetComponentsInChildren<Weapon>();
-        foreach (var weapon in startWeapons)
-            weapons.Add(weapon);
 
+        Weapons = new();
+        foreach (var weapon in startWeapons)
+            Weapons.Add(weapon);
+        
         Damage = startDamage;
     }
 
     public void AddWeapon(Weapon weapon)
     {
-        weapons.Add(weapon);
+        Weapons.Add(weapon);
     }
 
     public void IncreaseDamage()

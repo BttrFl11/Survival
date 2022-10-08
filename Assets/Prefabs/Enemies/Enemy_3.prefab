@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa92b0d2babff0049bd420b2aee9f4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
   attacksPerSecond: 0.9
   playerLayer:
     serializedVersion: 2

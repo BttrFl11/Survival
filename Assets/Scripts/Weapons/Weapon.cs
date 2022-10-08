@@ -6,6 +6,8 @@ public abstract class Weapon : MonoBehaviour, IWeapon
 
     public static PlayerFighting playerFighting;
 
+    public WeaponType WeaponType;
+
     protected float Damage
     {
         get => damageScale * playerFighting.Damage;

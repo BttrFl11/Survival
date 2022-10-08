@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695e53f554c88a64795bf701ee9e3e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deviceType: 1
+  deviceType: 0
   joystick: {fileID: 0}
   moveSpeed: 1.5
 --- !u!114 &7146716510207068921
@@ -148,9 +148,9 @@ MonoBehaviour:
   tempExpImage: {fileID: 0}
   expText: {fileID: 0}
   tempExpAnimSpeed: 3
-  startMaxExp: 25
-  increaseExpPerLevel: 10
-  expPow: 1.1
+  startMaxExp: 100
+  increaseExpPerLevel: 20
+  expPow: 1.15
 --- !u!1 &7146716510315742355
 GameObject:
   m_ObjectHideFlags: 0

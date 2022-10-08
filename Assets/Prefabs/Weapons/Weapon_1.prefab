@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageScale: 1.5
+  WeaponType: 1
   rotationSpeed: 5
   offset: 180
 --- !u!1 &4309979624341598723

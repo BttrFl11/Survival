@@ -61,6 +61,16 @@ public class PlayerStats : Damageable
         Health = maxHealth;
     }
 
+    // Cheats!
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+            Health += 10;
+        if (Input.GetKey(KeyCode.T))
+            Exp += 15;
+    }
+    //
+
     protected override void FixedUpdate()
     {
         // Animating tempExpImage. TempExpImage.fillAmount smoothly increases to expImage.fillAmount

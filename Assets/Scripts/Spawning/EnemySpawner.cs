@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
             for (int e = 0; e < currentWave.enemiesCount; e++)
             {
                 if (PlayerStats.Instance == null)
-                    break;
+                    StopAllCoroutines();
 
                 SpawnEnemy(currentWave.enemyPrefab);
 

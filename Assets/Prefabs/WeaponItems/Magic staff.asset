@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   Prefab: {fileID: 4809714802576709646, guid: 8f59cc4f56936ec4793094e3f9ce0945, type: 3}
+  WeaponType: 2

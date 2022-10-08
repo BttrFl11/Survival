@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : SecondaryWeapon
 {
-    private float damage;
     private float speed;
     private float lifetime;
     private Vector2 direction;
@@ -34,18 +33,5 @@ public class Projectile : MonoBehaviour
     {
         if (collision.TryGetComponent(out EnemyStats enemyStats))
             GiveDamage(enemyStats);
-    }
-
-    private void GiveDamage(EnemyStats enemyStats)
-    {
-        enemyStats.TakeDamage(damage);
-        //DestroyProjectile();
-    }
-
-    private void DestroyProjectile()
-    {
-        Debug.Log("Projectile was destoyed");
-
-        Destroy(gameObject);
     }
 }

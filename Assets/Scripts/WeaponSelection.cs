@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class WeaponSelection : MonoBehaviour
 {
@@ -57,10 +58,17 @@ public class WeaponSelection : MonoBehaviour
     private void InitializeItemButtons()
     {
         var tempList = new List<WeaponItem>(allWeapons);
+        var weaponList = new List<WeaponItem>();
+        foreach (var item in tempList)
+        {
+            if (PlayerFighting.HasWeaponOfType(item.WeaponType) == false)
+                weaponList.Add(item);
+        }
+
         int disabledButtons = 0;
         foreach (var button in itemButtons)
         {
-            if (tempList.Count == 0)
+            if (weaponList.Count == 0)
             {
                 DisableButton(button.gameObject, ref disabledButtons);
 
@@ -68,24 +76,19 @@ public class WeaponSelection : MonoBehaviour
             }
             else
             {
-                var randWeapon = tempList[Random.Range(0, tempList.Count)];
+                var randWeapon = weaponList[Random.Range(0, weaponList.Count)];
 
                 bool dublicate = false;
                 foreach (var weapon in PlayerFighting.Weapons)
-                {
                     if (weapon.WeaponType == randWeapon.WeaponType)
                         dublicate = true;
-                }
 
                 if (dublicate)
-                {
                     DisableButton(button.gameObject, ref disabledButtons);
-                }
                 else
-                {
-                    tempList.Remove(randWeapon);
                     button.SetWeaponItem(randWeapon);
-                }
+
+                weaponList.Remove(randWeapon);
 
                 Debug.Log($"Initialized Weapon Item: {randWeapon.name}\nButton: {button.name}");
             }

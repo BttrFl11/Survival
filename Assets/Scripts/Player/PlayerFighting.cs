@@ -50,6 +50,17 @@ public class PlayerFighting : MonoBehaviour
         Damage = startDamage;
     }
 
+    public bool HasWeaponOfType(WeaponType type)
+    {
+        foreach (var weapon in Weapons)
+        {
+            if (weapon.WeaponType == type)
+                return true;
+        }
+
+        return false;
+    }
+
     public void AddWeapon(Weapon weapon)
     {
         Weapons.Add(weapon);

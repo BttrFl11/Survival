@@ -13,4 +13,5 @@ public enum WeaponType
     Axe,
     Sword,
     Magic_staff,
+    Meteroid,
 }

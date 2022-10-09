@@ -4,7 +4,7 @@ using System.Collections;
 public class Weapon_3 : Weapon
 {
     [SerializeField] private float fireRate;
-    [SerializeField] private float attackRange;
+    [SerializeField] private float screenOffset;
     [SerializeField] private float delayBtwAttacks;
     [SerializeField] private int meteroidCount;
     [SerializeField] private GameObject meteroidPrefab;
@@ -33,8 +33,7 @@ public class Weapon_3 : Weapon
 
         for (int i = 0; i < meteroidCount; i++)
         {
-            Vector2 spawnPos = position + Random.insideUnitCircle * attackRange;
-            var meteroidGO = Instantiate(meteroidPrefab, spawnPos, Quaternion.identity);
+            var meteroidGO = Instantiate(meteroidPrefab, GetMeteroidSpawnPos(), Quaternion.identity);
             var meteroid = meteroidGO.GetComponent<Meteroid>();
             meteroid.Initialize(Damage);
 
@@ -43,6 +42,22 @@ public class Weapon_3 : Weapon
 
         isAttacking = false;
         timeBtwAttacks = startTimeBtwAttacks;
+    }
+
+    private Vector2 GetBoundsSize()
+    {
+        var boundsSize = new Vector2(CameraScreen.Width * 2 + screenOffset, CameraScreen.Height * 2 + screenOffset);
+        return boundsSize;
+    }
+
+    private Vector2 GetMeteroidSpawnPos()
+    {
+        Vector2 screen = new(CameraScreen.Width + screenOffset, CameraScreen.Height + screenOffset);
+        Vector2 spawnPos = position + new Vector2(
+            Random.Range(-screen.x, screen.x),
+            Random.Range(-screen.y, screen.y));
+
+        return spawnPos;
     }
 
     public override void Attack()
@@ -55,6 +70,7 @@ public class Weapon_3 : Weapon
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        
+        Gizmos.DrawWireCube(transform.position, GetBoundsSize());
     }
 }

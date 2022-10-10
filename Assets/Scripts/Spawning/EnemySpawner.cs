@@ -6,7 +6,6 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float spawnRadius;
     [SerializeField] private float timeBtwWaves;
-    [SerializeField] private Transform spawnedEnemiesParent;
     [SerializeField] private Wave[] waves;
 
     private Wave currentWave;
@@ -59,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
         if (PlayerStats.Instance == null)
             StopAllCoroutines();
 
-        Instantiate(enemyPrefab, Position + GetRandomPos(), Quaternion.identity, spawnedEnemiesParent);
+        Instantiate(enemyPrefab, Position + GetRandomPos(), Quaternion.identity, Environment.Instance.enemiesParent);
     }
 
     private Vector2 GetRandomPos()

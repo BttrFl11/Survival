@@ -12,4 +12,13 @@ public class EnemyStats : Damageable
 
         base.Die();
     }
+
+    public override void TakeDamage(float damage)
+    {
+        Health -= damage;
+
+        GameObject createdText = Instantiate(floatingText.gameObject, transform.position, Quaternion.identity, Environment.Instance.effectsParent);
+        var floatingTXT = createdText.GetComponent<FloatingText>();
+        floatingTXT.SetText(damage.ToString("0"));
+    }
 }

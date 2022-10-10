@@ -47,9 +47,5 @@ public class Damageable : MonoBehaviour, IDamageable
     public virtual void TakeDamage(float damage)
     {
         Health -= damage;
-
-        GameObject createdText = Instantiate(floatingText.gameObject, transform.position, Quaternion.identity);
-        var floatingTXT = createdText.GetComponent<FloatingText>();
-        floatingTXT.SetText(damage.ToString("0"));
     }
 }

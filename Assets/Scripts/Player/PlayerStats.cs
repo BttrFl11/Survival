@@ -61,7 +61,7 @@ public class PlayerStats : Damageable
         Health = maxHealth;
     }
 
-    // Cheats!
+    // Testing
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Environment : MonoBehaviour
 {
+    public Transform trashParent;
     public Transform enemiesParent;
     public Transform effectsParent;
 

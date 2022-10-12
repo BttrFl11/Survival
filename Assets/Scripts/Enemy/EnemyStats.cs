@@ -1,14 +1,18 @@
 using UnityEngine;
+using System;
 
 public class EnemyStats : Damageable
 {
     [SerializeField] private float expForDeath;
+    [SerializeField] private int moneyForDeath;
+
+    public static Action<float, int> OnEnemyDied;
 
     protected override void Die()
     {
         Debug.Log($"{name} died!");
 
-        PlayerStats.Instance.TakeExp(expForDeath);
+        OnEnemyDied?.Invoke(expForDeath, moneyForDeath);
 
         base.Die();
     }

@@ -96,7 +96,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sectorContent:
   - Prefab: {fileID: 1632268319959121531, guid: 4799d019fa6ea3d4cb9252294da2fcc5, type: 3}
-    Count: 5
+    Count: 2
+  - Prefab: {fileID: 1632268319959121531, guid: 9626ba3cfefaa904b959a570679973f3, type: 3}
+    Count: 2
 --- !u!114 &7759853734524151282
 MonoBehaviour:
   m_ObjectHideFlags: 0

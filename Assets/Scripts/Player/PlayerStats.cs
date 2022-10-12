@@ -20,6 +20,7 @@ public class PlayerStats : Damageable
 
     private float currentExp = 0;
     private float maxExp;
+    private GameCore gameCore;
 
     public static Action OnLevelUp;
 
@@ -50,7 +51,11 @@ public class PlayerStats : Damageable
 
     private void Awake()
     {
+        gameCore = FindObjectOfType<GameCore>();
+
         Initialize();
+
+        EnemyStats.OnEnemyDied += OnEnemyDied;
     }
 
     protected override void OnEnable()
@@ -79,6 +84,12 @@ public class PlayerStats : Damageable
         base.FixedUpdate();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out Pickup pickable))
+            pickable.OnPickUp();
+    }
+
     private void LevelUp()
     {
         currentExp -= maxExp;
@@ -99,25 +110,33 @@ public class PlayerStats : Damageable
             Debug.LogError("Scene has 2 and more PlayerStats!!!");
     }
 
+    private void OnEnemyDied(float exp, int money)
+    {
+        TakeExp(exp);
+
+        gameCore.Money += money;
+    }
+
     protected override void Die()
     {
-        healthImage.transform.parent.gameObject.SetActive(false);
-
         Debug.Log("PLAEYR DIED!");
+
+        healthImage.transform.parent.gameObject.SetActive(false);
 
         Destroy(gameObject);
     }
 
-
     internal void TakeExp(float exp)
     {
-        Exp += exp;
-
         Debug.Log($"Player took {exp} exp!\nTotal exp: {Exp}");
+
+        Exp += exp;
     }
 
     public override void TakeDamage(float damage)
     {
         Health -= damage;
     }
+
+    public void Heal(float health) => Health += health;
 }

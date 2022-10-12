@@ -323,6 +323,7 @@ MonoBehaviour:
   tempHealthAnimSpeed: 0
   floatingText: {fileID: 6037553663333594511, guid: 1adc4699cfcee7c409cc81d7f862387c, type: 3}
   expForDeath: 7
+  moneyForDeath: 3
 --- !u!1 &2310414962014184164
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class PlayerStats : Damageable
     [SerializeField] private Image expImage;
     [SerializeField] private Image tempExpImage;
     [SerializeField] private TextMeshProUGUI expText;
+    [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private float tempExpAnimSpeed;
     [SerializeField] private float startMaxExp;
     [SerializeField] private float increaseExpPerLevel;
@@ -20,6 +21,7 @@ public class PlayerStats : Damageable
 
     private float currentExp = 0;
     private float maxExp;
+    private int curentLevel = 1;
     private GameCore gameCore;
 
     public static Action OnLevelUp;
@@ -46,6 +48,17 @@ public class PlayerStats : Damageable
 
             expImage.fillAmount = currentExp / maxExp;
             expText.text = $"{currentExp:0} / {maxExp:0}";
+        }
+    }
+
+    private int Level
+    {
+        get => curentLevel;
+        set
+        {
+            curentLevel = value;
+
+            levelText.text = Level.ToString();
         }
     }
 
@@ -93,7 +106,7 @@ public class PlayerStats : Damageable
     private void LevelUp()
     {
         currentExp -= maxExp;
-        Health = maxHealth;
+        Level++;
 
         maxExp = Mathf.Pow(maxExp + increaseExpPerLevel, expPow);
 

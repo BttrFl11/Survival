@@ -6,7 +6,7 @@ public class Projectile : SecondaryWeapon
     private float lifetime;
     private Vector2 direction;
 
-    public void Initialize(float d, float s, float l, Vector2 dir)
+    public virtual void Initialize(float d, float s, float l, Vector2 dir)
     {
         damage = d;
         speed = s;

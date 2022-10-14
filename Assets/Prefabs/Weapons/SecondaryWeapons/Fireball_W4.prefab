@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3162414378401344568}
   - component: {fileID: 6733213119461614530}
-  - component: {fileID: 4966179366449565595}
+  - component: {fileID: 7845673341543481665}
   - component: {fileID: 6061666301898558632}
-  - component: {fileID: 3517789449786772342}
+  - component: {fileID: 9192049794228050034}
   m_Layer: 9
-  m_Name: Projectile_W2
+  m_Name: Fireball_W4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8116208455505827161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
-  m_Color: {r: 1, g: 0.88663393, b: 0.3254717, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
+  m_Color: {r: 1, g: 0.41924685, b: 0.32549024, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,8 +87,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4966179366449565595
-BoxCollider2D:
+--- !u!58 &7845673341543481665
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,18 +101,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3085785, y: 1.202317}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!96 &6061666301898558632
 TrailRenderer:
   serializedVersion: 2
@@ -158,7 +148,7 @@ TrailRenderer:
   m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.07
+    widthMultiplier: 0.18
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -185,8 +175,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.95084643, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.2723468, b: 0, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -221,7 +211,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &3517789449786772342
+--- !u!114 &9192049794228050034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,6 +220,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8116208455505827161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab5c67f6677bfc646a2786f11800c408, type: 3}
+  m_Script: {fileID: 11500000, guid: d635dc3a4f427374aa067dff8a57bc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniProjSpeed: 2
+  miniProjLifetime: 0.5
+  miniDamageMult: 0.5
+  maxRotation: 270
+  offset: 0
+  projectileCount: 15
+  projectilePrefab: {fileID: 8116208455505827161, guid: f3cfd6be4e661304382402983f7c2af0, type: 3}

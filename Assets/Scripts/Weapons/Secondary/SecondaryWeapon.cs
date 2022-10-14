@@ -11,8 +11,6 @@ public class SecondaryWeapon : MonoBehaviour
 
     protected virtual void DestroyProjectile()
     {
-        Debug.Log("Projectile was destoyed");
-
         Destroy(gameObject);
     }
 

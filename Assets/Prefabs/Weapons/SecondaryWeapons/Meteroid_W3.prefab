@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 372134179075236607}
   - component: {fileID: 2473623194004127374}
   m_Layer: 0
-  m_Name: Meteroid
+  m_Name: Meteroid_W3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

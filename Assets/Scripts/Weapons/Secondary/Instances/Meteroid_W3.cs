@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Meteroid : SecondaryWeapon
+public class Meteroid_W3 : SecondaryWeapon
 {
     [SerializeField] private Transform exploidRangeCanvas;
     [SerializeField] private float exploidRadius;

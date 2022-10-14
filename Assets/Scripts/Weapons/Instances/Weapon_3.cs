@@ -33,8 +33,8 @@ public class Weapon_3 : Weapon
 
         for (int i = 0; i < meteroidCount; i++)
         {
-            var meteroidGO = Instantiate(meteroidPrefab, GetMeteroidSpawnPos(), Quaternion.identity);
-            var meteroid = meteroidGO.GetComponent<Meteroid>();
+            var meteroidGO = Instantiate(meteroidPrefab, GetMeteroidSpawnPos(), Quaternion.identity, Environment.Instance.trashParent);
+            var meteroid = meteroidGO.GetComponent<Meteroid_W3>();
             meteroid.Initialize(Damage);
 
             yield return new WaitForSeconds(delayBtwAttacks);

@@ -20,6 +20,9 @@ public class GameCore : MonoBehaviour
         set
         {
             PlayerProperty.Money = value;
+
+            if (moneyText == null)
+                FindReferences();
             moneyText.text = Money.ToString();
         }
     }
@@ -34,6 +37,7 @@ public class GameCore : MonoBehaviour
         savePath = Path.Combine(Application.dataPath, saveFileName);
 #endif
 
+        FindReferences();
         Initialize();
         LoadFromFile();
     }
@@ -93,14 +97,6 @@ public class GameCore : MonoBehaviour
         ShopItems = gameCoreStruct.ShopItems;
         Money = PlayerProperty.Money;
     }
-
-    // Testing
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-            Money += 50;
-    }
-    //
 
     private void OnApplicationQuit()
     {

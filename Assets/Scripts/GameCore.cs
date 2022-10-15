@@ -8,7 +8,8 @@ public class GameCore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
 
     [Header("Content")]
-    [SerializeField] private PlayerProperty playerProperty;
+    public PlayerProperty PlayerProperty;
+    public ShopItemStruct[] ShopItems;
 
     [Header("Save Config")]
     [SerializeField] private string saveFileName = "data.json";
@@ -17,10 +18,10 @@ public class GameCore : MonoBehaviour
 
     public int Money
     {
-        get => playerProperty.Money;
+        get => PlayerProperty.Money;
         set
         {
-            playerProperty.Money = value;
+            PlayerProperty.Money = value;
             moneyText.text = Money.ToString();
         }
     }
@@ -38,12 +39,13 @@ public class GameCore : MonoBehaviour
 
     private void SaveToFile()
     {
-        PlayerProperty playerProperty = new PlayerProperty
+        GameCoreStruct gameCoreStruct = new GameCoreStruct
         {
-            Money = this.playerProperty.Money
+            PlayerProperty = PlayerProperty,
+            ShopItems = ShopItems,
         };
 
-        string data = JsonUtility.ToJson(playerProperty, true);
+        string data = JsonUtility.ToJson(gameCoreStruct, true);
 
         try
         {
@@ -64,11 +66,11 @@ public class GameCore : MonoBehaviour
         }
 
         string data = File.ReadAllText(savePath);
-        PlayerProperty playerProperty = JsonUtility.FromJson<PlayerProperty>(data);
+        GameCoreStruct gameCoreStruct = JsonUtility.FromJson<GameCoreStruct>(data);
 
-        this.playerProperty = playerProperty;
-
-        Money = playerProperty.Money;
+        PlayerProperty = gameCoreStruct.PlayerProperty;
+        ShopItems = gameCoreStruct.ShopItems;
+        Money = PlayerProperty.Money;
     }
 
     // Testing

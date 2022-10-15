@@ -15,4 +15,4 @@ MonoBehaviour:
   Type: 0
   Name: Health
   Cost: 120
-  Value: 5
+  Value: 0.05

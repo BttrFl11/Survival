@@ -10,17 +10,12 @@ public class ShopItemPanel : MonoBehaviour
     [SerializeField] private int maxLevel;
 
     private int currentLevel;
-
-    private static GameCore gameCore;
-
-    private void Awake()
-    {
-        if (gameCore == null)
-            gameCore = FindObjectOfType<GameCore>();
-    }
+    private GameCore gameCore;
 
     private void Start()
     {
+        gameCore = GameCore.Instance;
+
         currentLevel = gameCore.ShopItems[(int)shopItem.Type].currentLevel;
 
         UpdateUI();
@@ -46,13 +41,13 @@ public class ShopItemPanel : MonoBehaviour
         switch (shopItem.Type)
         {
             case ShopItemSO.ShopType.Health:
-                gameCore.PlayerProperty.BonusHealth += shopItem.Value;
+                gameCore.PlayerProperty.HealthMult += shopItem.Value;
                 break;
             case ShopItemSO.ShopType.Damage:
-                gameCore.PlayerProperty.BonusDamage += shopItem.Value;
+                gameCore.PlayerProperty.DamageMult += shopItem.Value;
                 break;
             case ShopItemSO.ShopType.MoveSpeed:
-                gameCore.PlayerProperty.BonusMoveSpeed += shopItem.Value;
+                gameCore.PlayerProperty.MoveSpeedMult += shopItem.Value;
                 break;
         }
         gameCore.ShopItems[(int)shopItem.Type].currentLevel = currentLevel;

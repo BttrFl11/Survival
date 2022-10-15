@@ -14,6 +14,11 @@ public partial class PlayerMomement : MonoBehaviour
         private set => direction = value;
     }
 
+    private void Start()
+    {
+        moveSpeed *= 1 + GameCore.Instance.PlayerProperty.MoveSpeedMult;
+    }
+
     private void FixedUpdate()
     {
         if (deviceType == DeviceType.PC)

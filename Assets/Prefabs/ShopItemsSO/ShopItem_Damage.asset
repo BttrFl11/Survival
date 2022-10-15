@@ -15,4 +15,4 @@ MonoBehaviour:
   Type: 1
   Name: Damage
   Cost: 150
-  Value: 5
+  Value: 0.05

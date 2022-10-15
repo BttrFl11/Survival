@@ -4,9 +4,6 @@ using TMPro;
 
 public class GameCore : MonoBehaviour
 {
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI moneyText;
-
     [Header("Content")]
     public PlayerProperty PlayerProperty;
     public ShopItemStruct[] ShopItems;
@@ -15,6 +12,7 @@ public class GameCore : MonoBehaviour
     [SerializeField] private string saveFileName = "data.json";
 
     private string savePath;
+    private TextMeshProUGUI moneyText;
 
     public int Money
     {
@@ -26,6 +24,8 @@ public class GameCore : MonoBehaviour
         }
     }
 
+    public static GameCore Instance;
+
     private void Awake()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -34,7 +34,28 @@ public class GameCore : MonoBehaviour
         savePath = Path.Combine(Application.dataPath, saveFileName);
 #endif
 
+        Initialize();
         LoadFromFile();
+    }
+
+    private void OnEnable()
+    {
+        FindReferences();
+    }
+
+    private void FindReferences()
+    {
+        moneyText = GameObject.FindGameObjectWithTag("MoneyText").GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Initialize()
+    {
+        DontDestroyOnLoad(this);
+
+        if (Instance == null)
+            Instance = this;
+        else
+            Debug.LogError("Scene has 2 and more GameCore!!");
     }
 
     private void SaveToFile()

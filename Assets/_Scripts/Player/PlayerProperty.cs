@@ -5,7 +5,7 @@ public struct PlayerProperty
 {
     public int Money;
 
-    public float BonusHealth;
-    public float BonusMoveSpeed;
-    public float BonusDamage;
+    public float HealthMult;
+    public float MoveSpeedMult;
+    public float DamageMult;
 }

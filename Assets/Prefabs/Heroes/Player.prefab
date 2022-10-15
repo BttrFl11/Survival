@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 7146716510207068920}
   - component: {fileID: 7146716510207068921}
   m_Layer: 6
-  m_Name: _Player
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   expImage: {fileID: 0}
   tempExpImage: {fileID: 0}
   expText: {fileID: 0}
+  levelText: {fileID: 0}
   tempExpAnimSpeed: 3
   startMaxExp: 100
   increaseExpPerLevel: 20

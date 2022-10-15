@@ -15,4 +15,4 @@ MonoBehaviour:
   Type: 2
   Name: Move Speed
   Cost: 130
-  Value: 5
+  Value: 0.05

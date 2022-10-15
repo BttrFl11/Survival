@@ -46,8 +46,12 @@ public class PlayerFighting : MonoBehaviour
         Weapons = new();
         foreach (var weapon in startWeapons)
             Weapons.Add(weapon);
-        
-        Damage = startDamage;
+    }
+
+    private void Start()
+    {
+        var damageMult = 1 + GameCore.Instance.PlayerProperty.DamageMult;
+        Damage = startDamage * damageMult;
     }
 
     public bool HasWeaponOfType(WeaponType type)
@@ -68,7 +72,8 @@ public class PlayerFighting : MonoBehaviour
 
     public void IncreaseDamage()
     {
-        Damage = Mathf.Pow(Damage + increaseDamagePerLevel, increasePow);
+        var damageMult = 1 + GameCore.Instance.PlayerProperty.DamageMult;
+        Damage = Mathf.Pow((Damage + increaseDamagePerLevel) * damageMult, increasePow);
 
         Debug.Log($"Current damage: {damage}");
     }

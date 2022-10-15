@@ -22,7 +22,6 @@ public class PlayerStats : Damageable
     private float currentExp = 0;
     private float maxExp;
     private int curentLevel = 1;
-    private GameCore gameCore;
 
     public static Action OnLevelUp;
 
@@ -35,7 +34,6 @@ public class PlayerStats : Damageable
             healthText.text = Health.ToString("0");
         }
     }
-
     private float Exp
     {
         get { return currentExp; }
@@ -50,7 +48,6 @@ public class PlayerStats : Damageable
             expText.text = $"{currentExp:0} / {maxExp:0}";
         }
     }
-
     private int Level
     {
         get => curentLevel;
@@ -64,18 +61,17 @@ public class PlayerStats : Damageable
 
     private void Awake()
     {
-        gameCore = FindObjectOfType<GameCore>();
-
         Initialize();
 
         EnemyStats.OnEnemyDied += OnEnemyDied;
     }
 
-    protected override void OnEnable()
+    private void Start()
     {
         maxExp = startMaxExp;
         Exp = 0;
 
+        maxHealth *= 1 + GameCore.Instance.PlayerProperty.HealthMult;
         Health = maxHealth;
     }
 
@@ -127,7 +123,7 @@ public class PlayerStats : Damageable
     {
         TakeExp(exp);
 
-        gameCore.Money += money;
+        GameCore.Instance.Money += money;
     }
 
     protected override void Die()

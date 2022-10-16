@@ -21,8 +21,6 @@ public class GameCore : MonoBehaviour
         {
             PlayerProperty.Money = value;
 
-            if (moneyText == null)
-                FindReferences();
             moneyText.text = Money.ToString();
         }
     }
@@ -44,12 +42,19 @@ public class GameCore : MonoBehaviour
 
     private void OnEnable()
     {
-        FindReferences();
+        SceneLoader.OnSceneLoaded += FindReferences;
+    }
+
+    private void OnDisable()
+    {
+        SceneLoader.OnSceneLoaded -= FindReferences;
     }
 
     private void FindReferences()
     {
         moneyText = GameObject.FindGameObjectWithTag("MoneyText").GetComponent<TextMeshProUGUI>();
+
+        Money = Money;
     }
 
     private void Initialize()

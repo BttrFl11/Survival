@@ -26,7 +26,7 @@ public class Weapon_1 : Weapon
         base.OnEnable();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out EnemyStats enemyStats))
             GiveDamage(enemyStats);

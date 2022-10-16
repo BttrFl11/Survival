@@ -15,4 +15,5 @@ public enum WeaponType
     Magic_staff,
     Meteroid,
     Fireball,
+    Flamethromwer,
 }

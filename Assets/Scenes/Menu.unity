@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f1c04ac9101c54b85f14775a59c485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 300
+  godMod: 1
   healthKey: 282
   healthPerUse: 25
   moneyKey: 283

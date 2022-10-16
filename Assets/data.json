@@ -1,16 +1,16 @@
 {
     "PlayerProperty": {
-        "Money": 15059,
+        "Money": 3150,
         "HealthMult": 0.30000001192092898,
         "MoveSpeedMult": 0.20000000298023225,
-        "DamageMult": 0.25
+        "DamageMult": 0.0
     },
     "ShopItems": [
         {
             "currentLevel": 6
         },
         {
-            "currentLevel": 5
+            "currentLevel": 0
         },
         {
             "currentLevel": 4

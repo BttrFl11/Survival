@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dc4e225bb9caf45a127a83a2f8cf57, type: 3}
+  m_Name: Flamethrower
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  Prefab: {fileID: 8517531082542628776, guid: 67d602b64838c04418e318458601bf3b, type: 3}
+  WeaponType: 5

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 public class Cheat : MonoBehaviour
 {
     [Header("General")]
-    [SerializeField] private int timer = 300;
+    [SerializeField] private bool godMod;
 
     [Header("Health")]
     [SerializeField] private KeyCode healthKey;
@@ -17,6 +17,8 @@ public class Cheat : MonoBehaviour
     [Header("Experience")]
     [SerializeField] private KeyCode expKey;
     [SerializeField] private int expPerUse = 15;
+
+    private float prevHealth;
 
     private void Awake()
     {
@@ -31,7 +33,5 @@ public class Cheat : MonoBehaviour
             PlayerStats.Instance.TakeExp(expPerUse);
         if (Input.GetKey(moneyKey))
             GameCore.Instance.Money += moneyPerUse;
-
-        Task.Delay(timer);
     }
 }

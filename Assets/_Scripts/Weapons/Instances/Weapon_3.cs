@@ -13,7 +13,7 @@ public class Weapon_3 : Weapon
     private float timeBtwAttacks;
     private bool isAttacking;
 
-    private Vector2 position
+    private Vector2 Position
     {
         get => transform.position;
         set => transform.position = value;
@@ -53,7 +53,7 @@ public class Weapon_3 : Weapon
     private Vector2 GetMeteroidSpawnPos()
     {
         Vector2 screen = new(CameraScreen.Width + screenOffset, CameraScreen.Height + screenOffset);
-        Vector2 spawnPos = position + new Vector2(
+        Vector2 spawnPos = Position + new Vector2(
             Random.Range(-screen.x, screen.x),
             Random.Range(-screen.y, screen.y));
 

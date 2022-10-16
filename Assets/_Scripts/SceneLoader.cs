@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private float transitionTime;
 
     public static SceneLoader Instance;
+    public static Action OnSceneLoaded;
 
     private void Awake()
     {
@@ -16,6 +17,11 @@ public class SceneLoader : MonoBehaviour
             Instance = this;
         else
             Debug.LogError("Scene has 2 and more SceneLoader!");
+    }
+
+    private void OnEnable()
+    {
+        OnSceneLoaded?.Invoke();
     }
 
     private IEnumerator StartLoading(int index)

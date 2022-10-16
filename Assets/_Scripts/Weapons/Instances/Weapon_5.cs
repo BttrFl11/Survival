@@ -38,7 +38,7 @@ public class Weapon_5 : Weapon_1
     protected override void FixedUpdate()
     {
         timer -= Time.fixedDeltaTime;
-        if(timer <= 0)
+        if (timer <= 0)
         {
             timer = reloading ? attackTime : reloadTime;
 
@@ -61,9 +61,11 @@ public class Weapon_5 : Weapon_1
 
     private IEnumerator AttackEnemies()
     {
-        if (reloading == false || enemiesInRange != null || enemiesInRange.Count != 0)
-            foreach (var enemy in enemiesInRange.ToList())
+        foreach (var enemy in enemiesInRange.ToList())
+        {
+            if (enemy != null)
                 GiveDamage(enemy);
+        }
 
         yield return new WaitForSeconds(timeBtwAttacks);
 

@@ -26,6 +26,8 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int w = 0; w < waves.Length; w++)
         {
+            yield return new WaitForSeconds(timeBtwWaves);
+
             currentWave = waves[w];
             timeBtwSpawns = 1 / currentWave.spawnEnemiesPerSecond;
 
@@ -36,16 +38,13 @@ public class EnemySpawner : MonoBehaviour
                 if (PlayerStats.Instance == null)
                     StopAllCoroutines();
 
-                SpawnEnemy(currentWave.enemyPrefab);
-
-                Debug.Log($"An enemy {e} were spawned");
-
                 yield return new WaitForSeconds(timeBtwSpawns);
+
+                SpawnEnemy(currentWave.enemyPrefab);
+                Debug.Log($"An enemy {e} were spawned");
             }
 
             Debug.Log("Wave ended!");
-
-            yield return new WaitForSeconds(timeBtwWaves);
         }
 
         Debug.Log("PLAYER WON!");

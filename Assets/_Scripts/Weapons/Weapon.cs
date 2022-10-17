@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour, IWeapon
 {
     [SerializeField] protected float damageScale;
+    [SerializeField] protected float pushForce;
 
     public static PlayerFighting playerFighting;
 
@@ -26,7 +27,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon
 
     public virtual void GiveDamage(Damageable damageable)
     {
-        damageable.TakeDamage(Damage);
+        damageable.TakeDamage(Damage, pushForce);
     }
 
     // Called once in per frame

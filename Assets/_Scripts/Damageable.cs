@@ -48,4 +48,9 @@ public class Damageable : MonoBehaviour, IDamageable
     {
         Health -= damage;
     }
+
+    public virtual void TakeDamage(float damage, float pushForce)
+    {
+        Health -= damage;
+    }
 }

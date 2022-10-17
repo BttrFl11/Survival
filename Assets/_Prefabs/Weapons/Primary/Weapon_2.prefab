@@ -61,12 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3c75eea5602084f81ca7a1eabce2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageScale: 1.4
+  damageScale: 1.5
+  pushForce: 1
   WeaponType: 2
   projectilePrefab: {fileID: 8116208455505827161, guid: 6b705414b924d8f4e9e9ed1e7344b258, type: 3}
   firePoint: {fileID: 2457110417537308345}
   fireRate: 0.5
-  shotsCount: 3
+  shotsCount: 1
   timeBtwShots: 0.15
   projectileSpeed: 7
   projectileLifetime: 2

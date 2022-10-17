@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageScale: 1
+  pushForce: 1
   WeaponType: 4
   fireRate: 0.5
   speed: 3

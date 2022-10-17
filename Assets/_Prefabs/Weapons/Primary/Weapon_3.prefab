@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageScale: 2
+  pushForce: 1
   WeaponType: 3
   fireRate: 0.2
-  attackRange: 3
+  screenOffset: 0
   delayBtwAttacks: 0.2
   meteroidCount: 3
   meteroidPrefab: {fileID: 5026010777622217918, guid: 14464ac4c3a6aa44ca7d27bd2d130895, type: 3}

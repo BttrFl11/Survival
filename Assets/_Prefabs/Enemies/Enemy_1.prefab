@@ -252,7 +252,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0.7
   m_AngularDrag: 0.7
   m_GravityScale: 0
@@ -324,7 +324,13 @@ MonoBehaviour:
   floatingText: {fileID: 6037553663333594511, guid: 1adc4699cfcee7c409cc81d7f862387c, type: 3}
   expForDeath: 13
   moneyForDeath: 3
-  blood: {fileID: 8412696789665295017, guid: 85ebc490a5981f448af218c35a549050, type: 3}
+  pushResist: 0.5
+  bloodPrefabs:
+  - {fileID: 7919862419566557762, guid: 8d2ac2157a8a21d499793cf32c512af9, type: 3}
+  - {fileID: 7919862419566557762, guid: 85f6de8ca7800004b8ec0c53e3a376d4, type: 3}
+  - {fileID: 7919862419566557762, guid: f381f0bedaa8b30418dd52f19c7775b6, type: 3}
+  - {fileID: 7919862419566557762, guid: 0c2e2c3fa3078474aaf3844831121659, type: 3}
+  - {fileID: 8412696789665295017, guid: 85ebc490a5981f448af218c35a549050, type: 3}
   spawnPosOffset: 0.3
   bloodDestroyTimer: 10
 --- !u!1 &2310414962014184164

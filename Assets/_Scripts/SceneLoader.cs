@@ -9,7 +9,9 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private float transitionTime;
 
     public static SceneLoader Instance;
+
     public static Action OnSceneLoaded;
+    public static Action OnSceneLoading;
 
     private void Awake()
     {
@@ -29,6 +31,8 @@ public class SceneLoader : MonoBehaviour
         crossfadeAnim.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
+
+        OnSceneLoading?.Invoke();
 
         SceneManager.LoadScene(index);
     }

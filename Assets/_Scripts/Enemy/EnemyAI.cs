@@ -21,7 +21,8 @@ public class EnemyAI : MonoBehaviour
     {
         neighborhood = GetComponent<Neighborhood>();
         rigidbody = GetComponent<Rigidbody2D>();
-        target = PlayerStats.Instance.transform;
+        if (PlayerStats.Instance != null)
+            target = PlayerStats.Instance.transform;
     }
 
     private void FixedUpdate()

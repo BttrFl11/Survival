@@ -43,11 +43,13 @@ public class GameCore : MonoBehaviour
     private void OnEnable()
     {
         SceneLoader.OnSceneLoaded += FindReferences;
+        SceneLoader.OnSceneLoading += SaveToFile;
     }
 
     private void OnDisable()
     {
         SceneLoader.OnSceneLoaded -= FindReferences;
+        SceneLoader.OnSceneLoading -= SaveToFile;
     }
 
     private void FindReferences()

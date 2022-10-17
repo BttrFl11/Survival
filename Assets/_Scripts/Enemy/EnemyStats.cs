@@ -87,6 +87,7 @@ public class EnemyStats : Damageable
 
         PushFromPlayer(pushForce);
 
+        CreateDamageEffect();
         CreateDamageText(damage);
         CreateBlood(minimized: true, centered: false); ;
     }

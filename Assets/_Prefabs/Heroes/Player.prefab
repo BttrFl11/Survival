@@ -161,10 +161,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  tempHealthAnimSpeed: 3
   healthImage: {fileID: 0}
   tempHealthImage: {fileID: 0}
-  tempHealthAnimSpeed: 3
   floatingText: {fileID: 0}
+  damageEffect: {fileID: 1454798775434400720, guid: 18706f333e60d1b45ac15f584e2a14ae, type: 3}
+  damageEffectDestroyTimer: 0.5
   healthText: {fileID: 0}
   expImage: {fileID: 0}
   tempExpImage: {fileID: 0}

@@ -4618,6 +4618,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1106138780}
+    - target: {fileID: 7146716510207068920, guid: 3a08169180c29b443ae6b569d195fd57, type: 3}
+      propertyPath: deviceType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7146716510207068921, guid: 3a08169180c29b443ae6b569d195fd57, type: 3}
       propertyPath: expText
       value: 

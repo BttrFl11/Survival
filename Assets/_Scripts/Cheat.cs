@@ -20,11 +20,6 @@ public class Cheat : MonoBehaviour
 
     private float prevHealth;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
-
     private void Update()
     {
         if (Input.GetKey(healthKey))

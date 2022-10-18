@@ -24,6 +24,9 @@ public class PlayerStats : Damageable
     private int curentLevel = 1;
 
     public static Action OnLevelUp;
+    public static Action OnPlayerDied;
+
+    public int EnemiesKilled = 0;
 
     protected override float Health 
     {
@@ -114,11 +117,14 @@ public class PlayerStats : Damageable
         TakeExp(exp);
 
         GameCore.Instance.Money += money;
+        EnemiesKilled++;
     }
 
     protected override void Die()
     {
         Debug.Log("PLAEYR DIED!");
+
+        OnPlayerDied?.Invoke();
 
         healthImage.transform.parent.gameObject.SetActive(false);
 

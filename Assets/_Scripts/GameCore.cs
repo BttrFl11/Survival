@@ -4,6 +4,9 @@ using TMPro;
 
 public class GameCore : MonoBehaviour
 {
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI moneyText;
+
     [Header("Content")]
     public PlayerProperty PlayerProperty;
     public ShopItemStruct[] ShopItems;
@@ -12,7 +15,6 @@ public class GameCore : MonoBehaviour
     [SerializeField] private string saveFileName = "data.json";
 
     private string savePath;
-    private TextMeshProUGUI moneyText;
 
     public int Money
     {
@@ -35,34 +37,22 @@ public class GameCore : MonoBehaviour
         savePath = Path.Combine(Application.dataPath, saveFileName);
 #endif
 
-        FindReferences();
         Initialize();
         LoadFromFile();
     }
 
     private void OnEnable()
     {
-        SceneLoader.OnSceneLoaded += FindReferences;
         SceneLoader.OnSceneLoading += SaveToFile;
     }
 
     private void OnDisable()
     {
-        SceneLoader.OnSceneLoaded -= FindReferences;
         SceneLoader.OnSceneLoading -= SaveToFile;
-    }
-
-    private void FindReferences()
-    {
-        moneyText = GameObject.FindGameObjectWithTag("MoneyText").GetComponent<TextMeshProUGUI>();
-
-        Money = Money;
     }
 
     private void Initialize()
     {
-        DontDestroyOnLoad(this);
-
         if (Instance == null)
             Instance = this;
         else

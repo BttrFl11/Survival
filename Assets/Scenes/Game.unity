@@ -3674,9 +3674,15 @@ MonoBehaviour:
   - enemiesCount: 60
     enemyPrefab: {fileID: 4752008721885735594, guid: 87b840ab076096f4c8e00cfc524eb299, type: 3}
     spawnEnemiesPerSecond: 2
+  - enemiesCount: 20
+    enemyPrefab: {fileID: 4752008721885735594, guid: 87b840ab076096f4c8e00cfc524eb299, type: 3}
+    spawnEnemiesPerSecond: 50
   - enemiesCount: 80
     enemyPrefab: {fileID: 4752008721885735594, guid: 41ab9fccf8e749c4e907170123eaf3a9, type: 3}
     spawnEnemiesPerSecond: 2.3
+  - enemiesCount: 25
+    enemyPrefab: {fileID: 4752008721885735594, guid: 41ab9fccf8e749c4e907170123eaf3a9, type: 3}
+    spawnEnemiesPerSecond: 50
   - enemiesCount: 100
     enemyPrefab: {fileID: 4752008721885735594, guid: 323224fe311cf1f49bc4b6a130b1d7e8, type: 3}
     spawnEnemiesPerSecond: 3.2

@@ -30,6 +30,6 @@ public abstract class Weapon : MonoBehaviour, IWeapon
         damageable.TakeDamage(Damage, pushForce);
     }
 
-    // Called once in per frame
+    // Called once per frame
     public abstract void Attack();
 }

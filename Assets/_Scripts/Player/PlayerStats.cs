@@ -62,11 +62,18 @@ public class PlayerStats : Damageable
         }
     }
 
-    private void Awake()
+    protected override void OnEnable()
     {
         Initialize();
 
         EnemyStats.OnEnemyDied += OnEnemyDied;
+
+        base.OnEnable();
+    }
+
+    private void OnDisable()
+    {
+        EnemyStats.OnEnemyDied -= OnEnemyDied;
     }
 
     private void Start()

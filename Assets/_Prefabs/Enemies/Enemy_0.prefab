@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8395470976902187351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 35
   tempHealthAnimSpeed: 0
-  healthImage: {fileID: 4895347234956358969}
+  healthImage: {fileID: 0}
   tempHealthImage: {fileID: 0}
   floatingText: {fileID: 6037553663333594511, guid: 1adc4699cfcee7c409cc81d7f862387c, type: 3}
   damageEffect: {fileID: 1454798775434400720, guid: 18706f333e60d1b45ac15f584e2a14ae, type: 3}

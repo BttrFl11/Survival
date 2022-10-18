@@ -19,6 +19,20 @@ public class EnemyStats : Damageable
 
     public static Action<float, int> OnEnemyDied;
 
+    protected override float Health
+    {
+        get { return health; }
+        set
+        {
+            health = value;
+
+            if (health > maxHealth)
+                health = maxHealth;
+            else if (health <= 0)
+                Die();
+        }
+    }
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -75,20 +89,20 @@ public class EnemyStats : Damageable
 
     public override void TakeDamage(float damage)
     {
-        Health -= damage;
-
+        CreateBlood(minimized: true, centered: false);
         CreateDamageText(damage);
-        CreateBlood(minimized: true, centered: false); ;
+
+        Health -= damage;
     }
 
     public override void TakeDamage(float damage, float pushForce)
     {
-        Health -= damage;
-
         PushFromPlayer(pushForce);
 
         CreateDamageEffect();
         CreateDamageText(damage);
-        CreateBlood(minimized: true, centered: false); ;
+        CreateBlood(minimized: true, centered: false);
+
+        Health -= damage;
     }
 }

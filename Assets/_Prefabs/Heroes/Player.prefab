@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deviceType: 0
   joystick: {fileID: 0}
-  moveSpeed: 1.5
+  moveSpeed: 1
 --- !u!114 &7146716510207068921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   startMaxExp: 100
   increaseExpPerLevel: 20
   expPow: 1.15
+  EnemiesKilled: 0
 --- !u!1 &7146716510315742355
 GameObject:
   m_ObjectHideFlags: 0

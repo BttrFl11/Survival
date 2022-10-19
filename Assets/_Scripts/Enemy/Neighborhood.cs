@@ -13,7 +13,7 @@ public class Neighborhood : MonoBehaviour
         {
             Vector3 avgPos = Vector3.zero;
 
-            if (neighbors.Count == 0)
+            if (neighbors.Count == 0 || neighbors == null)
                 return avgPos;
 
             foreach (var neighbor in neighbors)

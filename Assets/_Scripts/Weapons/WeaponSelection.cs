@@ -6,6 +6,7 @@ public class WeaponSelection : MonoBehaviour
     [SerializeField] private GameObject weaponSelection;
     [SerializeField] private SelectionItemButton[] itemButtons;
     [SerializeField] private List<WeaponItem> allWeapons;
+    [SerializeField] private int everyNLevel;
 
     public static PlayerFighting PlayerFighting;
 
@@ -18,12 +19,12 @@ public class WeaponSelection : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerStats.OnLevelUp += ShowSelection;
+        PlayerStats.OnLevelUp += OnLevelUp;
     }
 
     private void OnDisable()
     {
-        PlayerStats.OnLevelUp -= ShowSelection;
+        PlayerStats.OnLevelUp -= OnLevelUp;
     }
 
     private void SetSelectionActive(bool active)
@@ -35,6 +36,12 @@ public class WeaponSelection : MonoBehaviour
     }
 
     // Calls when player got level up
+    private void OnLevelUp(int level)
+    {
+        if (level % everyNLevel == 0)
+            ShowSelection();
+    }
+
     private void ShowSelection()
     {
         SetSelectionActive(true);

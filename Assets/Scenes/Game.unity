@@ -1736,12 +1736,24 @@ MonoBehaviour:
   spawnRadius: 13
   timeBtwWaves: 1
   waves:
-  - enemiesCount: 20
+  - enemiesCount: 40
     enemyPrefab: {fileID: 4752008721885735594, guid: 87b840ab076096f4c8e00cfc524eb299, type: 3}
     spawnEnemiesPerSecond: 3
-  - enemiesCount: 30
+  - enemiesCount: 50
     enemyPrefab: {fileID: 4752008721885735594, guid: 87b840ab076096f4c8e00cfc524eb299, type: 3}
-    spawnEnemiesPerSecond: 30
+    spawnEnemiesPerSecond: 100
+  - enemiesCount: 15
+    enemyPrefab: {fileID: 4752008721885735594, guid: b14308e01bd2e0043915cbdf1a7a0eab, type: 3}
+    spawnEnemiesPerSecond: 50
+  - enemiesCount: 50
+    enemyPrefab: {fileID: 4752008721885735594, guid: 41ab9fccf8e749c4e907170123eaf3a9, type: 3}
+    spawnEnemiesPerSecond: 3.5
+  - enemiesCount: 25
+    enemyPrefab: {fileID: 4752008721885735594, guid: 323224fe311cf1f49bc4b6a130b1d7e8, type: 3}
+    spawnEnemiesPerSecond: 50
+  - enemiesCount: 75
+    enemyPrefab: {fileID: 4752008721885735594, guid: 87b840ab076096f4c8e00cfc524eb299, type: 3}
+    spawnEnemiesPerSecond: 100
 --- !u!1 &606074132
 GameObject:
   m_ObjectHideFlags: 0
@@ -6176,6 +6188,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 80ef8d4c360db964884b557fa2bc5b71, type: 2}
   - {fileID: 11400000, guid: 261fdb3b658e61f4c842d317e1d43e92, type: 2}
   - {fileID: 11400000, guid: 9cc1d5cb798779c409d0a39d35e7f10b, type: 2}
+  everyNLevel: 3
 --- !u!1001 &2826982585145632859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6444,6 +6457,10 @@ PrefabInstance:
     - target: {fileID: 7146716510207068920, guid: 3a08169180c29b443ae6b569d195fd57, type: 3}
       propertyPath: deviceType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146716510207068921, guid: 3a08169180c29b443ae6b569d195fd57, type: 3}
+      propertyPath: expPow
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7146716510207068921, guid: 3a08169180c29b443ae6b569d195fd57, type: 3}
       propertyPath: expText

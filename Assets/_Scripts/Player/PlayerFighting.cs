@@ -70,7 +70,7 @@ public class PlayerFighting : MonoBehaviour
         Weapons.Add(weapon);
     }
 
-    public void IncreaseDamage()
+    public void IncreaseDamage(int _)
     {
         var damageMult = 1 + GameCore.Instance.PlayerProperty.DamageMult;
         Damage = Mathf.Pow((Damage + increaseDamagePerLevel) * damageMult, increasePow);

@@ -14,7 +14,6 @@ public class PlayerStats : Damageable
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private float tempExpAnimSpeed;
     [SerializeField] private float startMaxExp;
-    [SerializeField] private float increaseExpPerLevel;
     [SerializeField] private float expPow;
 
     public static PlayerStats Instance;
@@ -23,7 +22,7 @@ public class PlayerStats : Damageable
     private float maxExp;
     private int curentLevel = 1;
 
-    public static Action OnLevelUp;
+    public static Action<int> OnLevelUp;
     public static Action OnPlayerDied;
 
     public int EnemiesKilled = 0;
@@ -104,9 +103,9 @@ public class PlayerStats : Damageable
         currentExp -= maxExp;
         Level++;
 
-        maxExp = Mathf.Pow(maxExp + increaseExpPerLevel, expPow);
+        maxExp = Mathf.Pow(maxExp, expPow);
 
-        OnLevelUp?.Invoke();
+        OnLevelUp?.Invoke(Level);
 
         Debug.Log("LEVEL UP!");
     }

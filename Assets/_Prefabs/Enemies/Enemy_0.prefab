@@ -324,8 +324,8 @@ MonoBehaviour:
   floatingText: {fileID: 6037553663333594511, guid: 1adc4699cfcee7c409cc81d7f862387c, type: 3}
   damageEffect: {fileID: 1454798775434400720, guid: 18706f333e60d1b45ac15f584e2a14ae, type: 3}
   damageEffectDestroyTimer: 0.5
-  expForDeath: 7
-  moneyForDeath: 3
+  expForDeath: 32
+  moneyForDeath: 1
   pushResist: 0.2
   bloodPrefabs:
   - {fileID: 7919862419566557762, guid: 8d2ac2157a8a21d499793cf32c512af9, type: 3}

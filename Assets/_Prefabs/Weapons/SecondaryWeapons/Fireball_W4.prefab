@@ -223,9 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d635dc3a4f427374aa067dff8a57bc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniProjSpeed: 2
-  miniProjLifetime: 0.5
-  miniDamageMult: 0.5
+  miniProjSpeed: 3
+  miniProjLifetime: 0.75
+  miniDamageMult: 0.85
   maxRotation: 270
   offset: 0
   projectileCount: 15

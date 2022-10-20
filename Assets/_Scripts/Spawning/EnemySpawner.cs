@@ -1,6 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
+using static UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Wave currentWave;
     private float timeBtwSpawns;
+    private int enemiesAlive = 0;
 
     private Vector2 Position
     {
@@ -17,9 +19,21 @@ public class EnemySpawner : MonoBehaviour
         set => transform.position = value;
     }
 
+    public static Action OnPlayerWon;
+
     private void Awake()
     {
         StartCoroutine(StartWaves());
+    }
+
+    private void OnEnable()
+    {
+        EnemyStats.OnEnemyDied += (_, _) => enemiesAlive--;
+    }
+
+    private void OnDisable()
+    {
+        EnemyStats.OnEnemyDied -= (_, _) => enemiesAlive--;
     }
 
     private IEnumerator StartWaves()
@@ -31,39 +45,41 @@ public class EnemySpawner : MonoBehaviour
             currentWave = waves[w];
             timeBtwSpawns = 1 / currentWave.spawnEnemiesPerSecond;
 
-            Debug.Log("Starting the new wave...");
+            Debug.Log("Starting a new wave...");
 
             for (int e = 0; e < currentWave.enemiesCount; e++)
             {
+                yield return new WaitForSeconds(timeBtwSpawns);
+
                 if (PlayerStats.Instance == null)
                     StopAllCoroutines();
 
-                yield return new WaitForSeconds(timeBtwSpawns);
-
                 SpawnEnemy(currentWave.enemyPrefab);
-                Debug.Log($"An enemy {e} were spawned");
             }
-
-            Debug.Log("Wave ended!");
         }
 
-        Debug.Log("PLAYER WON!");
+        yield return new WaitUntil(() => enemiesAlive <= 0);
 
-        yield return null;
+        PlayerWon();
+    }
+
+    private void PlayerWon()
+    {
+        Debug.Log("---===PLAYER WON!!===---");
+
+        OnPlayerWon?.Invoke();
     }
 
     private void SpawnEnemy(EnemyStats enemyPrefab)
     {
-        if (PlayerStats.Instance == null)
-            StopAllCoroutines();
-
         Instantiate(enemyPrefab, Position + GetRandomPos(), Quaternion.identity, Environment.Instance.enemiesParent);
+        enemiesAlive++;
     }
 
     private Vector2 GetRandomPos()
     {
         // Calculates the random pos on circle surface
-        Vector2 pos = new(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        Vector2 pos = new(Range(-1f, 1f), Range(-1f, 1f));
         pos = pos.normalized * spawnRadius;
         return pos;
     }
@@ -71,6 +87,6 @@ public class EnemySpawner : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, spawnRadius);
+        Gizmos.DrawWireSphere(Position, spawnRadius);
     }
 }

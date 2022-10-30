@@ -16,4 +16,5 @@ public enum WeaponType
     Meteroid,
     Fireball,
     Flamethromwer,
+    Boomerang,
 }

@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class WonPanel : MonoBehaviour
+public class WonPanel : EndGamePanel
 {
-    [SerializeField] private GameObject playerWonPanel;
-    [SerializeField] private float showTimer = 1f;
-
-    private void OnEnable()
+    protected override void OnEnable()
     {
         EnemySpawner.OnPlayerWon += () => Invoke(nameof(ShowPanel), showTimer);
     }
 
-    private void ShowPanel() => playerWonPanel.SetActive(true);
+    protected override void OnDisable()
+    {
+        EnemySpawner.OnPlayerWon -= () => Invoke(nameof(ShowPanel), showTimer);
+    }
 }

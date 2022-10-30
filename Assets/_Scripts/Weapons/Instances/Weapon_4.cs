@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class Weapon_4 : Weapon
+[RequireComponent(typeof(CircleCollider2D))]
+public class Weapon_4 : Shootable
 {
     [SerializeField] private float fireRate;
     [SerializeField] private float speed;
@@ -18,24 +19,20 @@ public class Weapon_4 : Weapon
 
     private void Shoot()
     {
+        Debug.Log("Shot");
+
         var projectileGO = Instantiate(projectilePrefab, transform.position, Quaternion.identity, Environment.Instance.trashParent);
         var projectile = projectileGO.GetComponent<Projectile>();
 
-        projectile.Initialize(Damage, speed, lifetime, GetRandomDir());
+        projectile.Initialize(Damage, speed, lifetime, GetNearestEnemyDir());
 
         timeBtwShots = startTimeBtwShots;
-    }
-
-    private Vector2 GetRandomDir()
-    {
-        Vector2 dir = new(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        return dir.normalized;
     }
 
     public override void Attack()
     {
         timeBtwShots -= Time.fixedDeltaTime;
-        if (timeBtwShots <= 0)
+        if (timeBtwShots <= 0 && enemiesInRange.Count > 0)
             Shoot();
     }
 }

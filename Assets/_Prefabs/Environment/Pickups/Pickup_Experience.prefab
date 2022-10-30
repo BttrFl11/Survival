@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 146078743045793098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8794154343283188540}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b85c98479660e4748a83e40b5d590b47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2ebfbdb268e6af43a5c2d90d9f33423, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8794154343283188540}
-  - component: {fileID: 2184115715037232400}
-  - component: {fileID: 1412410451464503082}
+  - component: {fileID: 4052041383472127711}
+  - component: {fileID: 5570787339221148378}
   m_Layer: 8
-  m_Name: Pickup_Health
+  m_Name: Pickup_Experience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,15 +111,15 @@ Transform:
   m_GameObject: {fileID: 1632268319959121531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7400905473798869048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2184115715037232400
-BoxCollider2D:
+--- !u!58 &4052041383472127711
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,19 +132,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
-  m_EdgeRadius: 0
---- !u!114 &1412410451464503082
+  m_Radius: 1
+--- !u!114 &5570787339221148378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632268319959121531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67e47b4f95e415c4c9750f8e71f38406, type: 3}
+  m_Script: {fileID: 11500000, guid: 610af43813590bd4f9680d98187a7354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 35
+  amount: 50
+  speed: 2

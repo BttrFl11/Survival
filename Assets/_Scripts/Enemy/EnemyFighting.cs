@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class EnemyFighting : MonoBehaviour
 {
-    [SerializeField] private float damage;
     [SerializeField] private float attacksPerSecond;
     [SerializeField] private LayerMask playerLayer;
 
     private float timeBtwAttacks;
     private new Collider2D collider;
+
+    private const float DAMAGE = 35;
 
     private void Awake()
     {
@@ -31,7 +32,7 @@ public class EnemyFighting : MonoBehaviour
 
     private void Attack(PlayerStats playerStats)
     {
-        playerStats.TakeDamage(damage);
+        playerStats.TakeDamage(DAMAGE);
 
         Debug.Log("Enemy attacks!");
     }

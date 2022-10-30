@@ -1821,7 +1821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &553352359
 Transform:
   m_ObjectHideFlags: 0
@@ -4378,10 +4378,10 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 25
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -4422,7 +4422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80.399994, y: -95.1355}
+  m_AnchoredPosition: {x: -80.3999, y: -95.1355}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1336435655
@@ -5479,7 +5479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1619643127
 Transform:
   m_ObjectHideFlags: 0
@@ -7762,7 +7762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf29aaac4995e2499a601add7f196ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 1109347982}
+  showTimer: 1
+  panel: {fileID: 1109347982}
   enemiesKilledText: {fileID: 2108826176}
 --- !u!114 &2142008685
 MonoBehaviour:
@@ -7782,12 +7783,8 @@ MonoBehaviour:
   - {fileID: 1481954963}
   - {fileID: 2044564313}
   allWeapons:
-  - {fileID: 11400000, guid: e7603a054388e884591f07e845630d55, type: 2}
   - {fileID: 11400000, guid: b7525b9df5ff1914e8a7e7d2de49436e, type: 2}
-  - {fileID: 11400000, guid: 3760467207d58da4ca34fcf57e424a7b, type: 2}
-  - {fileID: 11400000, guid: 80ef8d4c360db964884b557fa2bc5b71, type: 2}
   - {fileID: 11400000, guid: 261fdb3b658e61f4c842d317e1d43e92, type: 2}
-  - {fileID: 11400000, guid: 9cc1d5cb798779c409d0a39d35e7f10b, type: 2}
   everyNLevel: 3
 --- !u!114 &2142008686
 MonoBehaviour:
@@ -7801,8 +7798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386cc07421e142148b425f98576c8a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWonPanel: {fileID: 670498917}
   showTimer: 1
+  panel: {fileID: 670498917}
+  enemiesKilledText: {fileID: 1021852226}
 --- !u!1001 &2826982585145632859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8020,6 +8018,10 @@ PrefabInstance:
       propertyPath: damageText
       value: 
       objectReference: {fileID: 1519965057}
+    - target: {fileID: 5519910808025188521, guid: 3a08169180c29b443ae6b569d195fd57, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7146716510207068902, guid: 3a08169180c29b443ae6b569d195fd57, type: 3}
       propertyPath: m_RootOrder
       value: 4

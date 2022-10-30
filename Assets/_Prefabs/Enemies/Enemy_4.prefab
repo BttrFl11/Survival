@@ -300,7 +300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa92b0d2babff0049bd420b2aee9f4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
   attacksPerSecond: 1
   playerLayer:
     serializedVersion: 2
@@ -326,6 +325,7 @@ MonoBehaviour:
   damageEffectDestroyTimer: 0.5
   expForDeath: 1024
   moneyForDeath: 1
+  dropForDeath: {fileID: 1632268319959121531, guid: ec958b947ad503a4092a6ffe97b95d72, type: 3}
   pushResist: 0.7
   bloodPrefabs:
   - {fileID: 7919862419566557762, guid: 8d2ac2157a8a21d499793cf32c512af9, type: 3}

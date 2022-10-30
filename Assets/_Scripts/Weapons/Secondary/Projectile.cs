@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class Projectile : SecondaryWeapon
 {
-    private float speed;
-    private float lifetime;
-    private Vector2 direction;
+    protected float speed;
+    protected float lifetime;
+    protected Vector2 direction;
+
+    protected Vector2 Position
+    {
+        get => transform.position;
+        set => transform.position = value;
+    }
 
     public virtual void Initialize(float d, float s, float l, Vector2 dir)
     {
@@ -19,17 +25,17 @@ public class Projectile : SecondaryWeapon
         Invoke(nameof(DestroyProjectile), lifetime);
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Move();
     }
 
-    private void Move()
+    protected virtual void Move()
     {
         transform.Translate(speed * Time.fixedDeltaTime * direction);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out EnemyStats enemyStats))
             GiveDamage(enemyStats);

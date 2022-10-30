@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Weapon_2 : Weapon
+[RequireComponent(typeof(CircleCollider2D))]
+public class Weapon_2 : Shootable
 {
     [Header("General")]
     [SerializeField] private GameObject projectilePrefab;
@@ -20,8 +21,6 @@ public class Weapon_2 : Weapon
     private float timeBtwVolleys;
     private bool volleyStarted;
 
-    private List<EnemyStats> enemiesInRange = new();
-
     protected override void OnEnable()
     {
         startTimeBtwVolleys = 1 / fireRate;
@@ -34,15 +33,6 @@ public class Weapon_2 : Weapon
     {
         volleyStarted = true;
 
-        // It finds a nearest enemy
-        Vector2 nearestTarget = Vector2.zero;
-        foreach (var enemy in enemiesInRange)
-        {
-            Vector2 distance = enemy.transform.position - transform.position;
-            if (nearestTarget == Vector2.zero || distance.magnitude < nearestTarget.magnitude)
-                nearestTarget = distance;
-        }
-
         // Shooting volley
         for (int i = 0; i < shotsCount; i++)
         {
@@ -50,26 +40,13 @@ public class Weapon_2 : Weapon
 
             GameObject projectileGO = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             Projectile projectile = projectileGO.GetComponent<Projectile>();
+            Vector2 nearestTarget = GetNearestEnemyDir();
 
-            projectile.Initialize(Damage, projectileSpeed, projectileLifetime, nearestTarget.normalized);
+            projectile.Initialize(Damage, projectileSpeed, projectileLifetime, new Vector2(nearestTarget.x, nearestTarget.y).normalized);
         }
 
         volleyStarted = false;
         timeBtwVolleys = startTimeBtwVolleys;
-    }
-
-    // If an enemy has entered in the fire range, adds it to the list
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out EnemyStats enemyStats))
-            enemiesInRange.Add(enemyStats);
-    }
-
-    // If an enemy has died or left from the fire range, removes it from the list
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out EnemyStats enemyStats))
-            enemiesInRange.Remove(enemyStats);
     }
 
     public override void Attack()

@@ -8,6 +8,7 @@ public class EnemyStats : Damageable
     [Header("General")]
     [SerializeField] private float expForDeath;
     [SerializeField] private int moneyForDeath;
+    [SerializeField] private GameObject dropForDeath; 
     [SerializeField][Range(0,1)] private float pushResist;
 
     [Header("Blood")]
@@ -45,8 +46,14 @@ public class EnemyStats : Damageable
         OnEnemyDied?.Invoke(expForDeath, moneyForDeath);
 
         CreateBlood(centered: true);
+        SpawnDrop();
 
         base.Die();
+    }
+
+    private void SpawnDrop()
+    {
+        Instantiate(dropForDeath, transform.position, Quaternion.identity, Environment.Instance.trashParent);
     }
 
     private void CreateDamageText(float damage)
